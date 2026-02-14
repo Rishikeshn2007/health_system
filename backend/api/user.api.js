@@ -2,9 +2,9 @@ const express=require('express');
 const router=express.Router();
 
 //System modules
-const User = require("../models/user.models");
+const User = require("../models/user.models.js");
 
-router.get("/register",async (req,res)=>{
+router.post("/register",async (req,res)=>{
     try {
         const { username, password, email } = req.body;
 

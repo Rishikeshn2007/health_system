@@ -5,7 +5,7 @@ const path=require('path');
 const port = process.env.PORT || 3000;
 
 //System modules
-const u_routs=require('../backend/router/user.routes')
+const u_routs=require('./backend/user.routes.js')
 
 const server = express();
 
@@ -20,8 +20,8 @@ server.use(express.json());
 server.use(express.urlencoded({extended:true}));
 server.use(express.static(path.join(__dirname,'frontend')));
 
-app.post("/users",u_routs);
-app.get("/users",u_routs);
+server.use("/users",u_routs);
+server.use("/users",u_routs);
 
 server.get("/login",(req,res)=>{
   res.sendFile(path.join(__dirname,'frontend','home','login.html'));
