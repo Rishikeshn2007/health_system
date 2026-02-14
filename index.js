@@ -1,10 +1,11 @@
 require("dotenv").config();
 const express = require('express');
+const mongoose=require('mongoose')
 const path=require('path');
 const port = process.env.PORT || 3000;
 
 //System modules
-const u_routs=require('./backend/router/user.routes')
+const u_routs=require('../backend/router/user.routes')
 
 const server = express();
 
@@ -16,7 +17,7 @@ mongoose
 
 //Middle wares:
 server.use(express.json());
-server.use(express.urlencoded());
+server.use(express.urlencoded({extended:true}));
 server.use(express.static(path.join(__dirname,'frontend')));
 
 app.post("/users",u_routs);

@@ -2,7 +2,7 @@ const express=require('express');
 const router=express.Router();
 
 //System modules
-const User = require("./models/user.models");
+const User = require("../models/user.models");
 
 router.get("/register",async (req,res)=>{
     try {
